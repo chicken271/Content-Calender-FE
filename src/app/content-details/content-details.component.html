@@ -1,12 +1,3 @@
-<!-- {{currentContent.id}} <br>
-{{currentContent.title}} <br>
-{{currentContent.description}} <br>
-{{currentContent.status}} <br>
-{{currentContent.contentType}} <br>
-{{currentContent.url}} <br>
-{{currentContent.dateCreated}} <br>
-{{currentContent.dateUpdated}} <br> -->
-
 <ng-template #displayCurrentContent>
   <div class="container border border-dark my-4 p-4">
     <div class="row align-items-center ">
@@ -20,8 +11,8 @@
       </div>
 
       <div class="mt-3">
-        <label class="form-label">Content Title</label>
-        <input type="text" class="form-control" formControlName="contentTitleControl" [(ngModel)]="currentContent.title">
+        <label class="form-label" for="title-input">Content Title</label>
+        <input id="title-input" type="text" class="form-control" formControlName="contentTitleControl" [(ngModel)]="currentContent.title">
 
         <div *ngIf="updateContentForm.get('contentTitleControl')!.invalid && updateContentForm.get('contentTitleControl')!.dirty || updateContentForm.get('contentTitleControl')!.touched" class="mt-2">
           <div *ngIf="updateContentForm.get('contentTitleControl')?.errors?.['required']" class="alert alert-danger">
@@ -35,8 +26,8 @@
 
 
       <div class="mt-3">
-        <label class="form-label me-3" for="content-type">Content Type:</label>
-        <select name="content-type" id="" formControlName="contentTypeControl" [(ngModel)]="currentContent.contentType">
+        <label class="form-label me-3" for="type-input">Content Type:</label>
+        <select name="content-type" id="type-input" formControlName="contentTypeControl" [(ngModel)]="currentContent.contentType">
           <option value="" hidden default>Pick a type</option>
           <option value="VIDEO">Video</option>
           <option value="ARTICLE">Article</option>
@@ -52,8 +43,8 @@
       </div>
 
       <div class="mt-3">
-        <label class="form-label me-3" for="content-status">Content Status:</label>
-        <select  id="" formControlName="contentStatusControl" [(ngModel)]="currentContent.status">
+        <label class="form-label me-3" for="status-input">Content Status:</label>
+        <select  id="status-input" formControlName="contentStatusControl" [(ngModel)]="currentContent.status">
           <option value="" hidden default>Pick a status</option>
           <option value="IDEA">Idea</option>
           <option value="IN_PROGRESS">In Progress</option>
@@ -69,8 +60,8 @@
       </div>
 
       <div class="mt-3">
-        <label class="form-label">Content URL</label>
-        <input type="text"  placeholder="URL" class="form-control" formControlName="contentUrlControl" [(ngModel)]="currentContent.url">
+        <label class="form-label" for="url-input">Content URL</label>
+        <input id="url-input" type="text" placeholder="URL" class="form-control" formControlName="contentUrlControl" [(ngModel)]="currentContent.url">
 
         <div *ngIf="updateContentForm.get('contentUrlControl')!.invalid && updateContentForm.get('contentUrlControl')!.dirty || updateContentForm.get('contentUrlControl')!.touched" class="mt-2">
           <div *ngIf="updateContentForm.get('contentUrlControl')?.errors?.['required']" class="alert alert-danger">
@@ -83,8 +74,8 @@
       </div>
 
       <div class="mt-3">
-        <label  class="form-label ">Content Description</label>
-        <textarea name="" id="" rows="3" placeholder="Description" class="form-control" formControlName="contentDescriptionControl" [(ngModel)]="currentContent.description"></textarea>
+        <label class="form-label" for="description-input">Content Description</label>
+        <textarea name="" id="description-input" rows="3" placeholder="Description" class="form-control" formControlName="contentDescriptionControl" [(ngModel)]="currentContent.description"></textarea>
 
         <div *ngIf="updateContentForm.get('contentDescriptionControl')!.invalid && updateContentForm.get('contentDescriptionControl')!.dirty || updateContentForm.get('contentDescriptionControl')!.touched" class="mt-2">
           <div *ngIf="updateContentForm.get('contentDescriptionControl')?.errors?.['required']" class="alert alert-danger">

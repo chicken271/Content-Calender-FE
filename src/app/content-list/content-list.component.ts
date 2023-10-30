@@ -40,7 +40,6 @@ export class ContentListComponent implements OnInit {
       this.titleFilter = value;
     });
 
-    
   }
 
   getSearchValue(){
@@ -63,19 +62,6 @@ export class ContentListComponent implements OnInit {
 
   public filterData(): IContent[] {
     let filteredContent = this.contentList;
-
-    // this.getSearchValue();
-
-    // if(this.searchValue.length!==0){
-    //   this.getSearchResult();
-    //   filteredContent = this.searchResult;
-    // }else filteredContent = this.contentList;
-
-    if (this.searchValue.length!==0) {
-      // filteredContent = filteredContent.filter(x =>{
-      //   return x.title.includes(this.searchValue);
-      // })
-    }
 
     if (this.titleFilter.length!==0) {
       filteredContent = filteredContent.filter(x =>{

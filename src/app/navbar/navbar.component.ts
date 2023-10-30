@@ -19,11 +19,11 @@ export class NavbarComponent{
   searchResult: IContent[] = [];
 
   constructor(private events: EventService, private dataService: DataService, private router: Router,private message: MessageService, private eventEmitterService: EventEmittertService) { }
+  
   @ViewChild('customSearch', { static: true }) customSearchElement: ElementRef = {} as ElementRef;
 
   searchContent(event: any) {
     this.temp = event.value;
-    console.log(this.temp);
 
     // this.dataService.searchContent(this.temp).subscribe(value => {this.events.emit('searchResult',value)});
     // this.router.navigateByUrl(`/search/${this.temp}`);

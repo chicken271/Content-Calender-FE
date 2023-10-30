@@ -13,7 +13,6 @@ export class HistoryComponent implements OnInit {
   currentRoute = '/historyLogs';
 
   ngOnInit(): void {
-    console.log(this.router.url);
   }
 
 }

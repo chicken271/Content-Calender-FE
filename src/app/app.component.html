@@ -14,13 +14,6 @@
   </svg>
 </button>
 
-<!-- <div *ngIf="displayHistory" class="bg-primary history-all-container">
-  <button type="button" class="btn-close" aria-label="Close"></button>
-  <div class="history-container bg-dark text-white">
-    <history></history>
-  </div>
-</div> -->
-
 <div class="sth p-3 rounded shadow-lg p-3 mb-5 rounded" *ngIf="displayHistory && checkRoute!==router.url">
   <h3 class="justify-content-center align-content-center">History Logs</h3>
   <button type="button" class="btn-close close-button" aria-label="Close" (click)="toggleHistory()"></button>

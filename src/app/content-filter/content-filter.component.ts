@@ -8,7 +8,6 @@ import { EventService } from '../core/event.service';
   styleUrls: ['./content-filter.component.css']
 })
 export class ContentFilterComponent{
-  @Input()contentList:IContent[]=[];
 
   typeFilter: any = [];
   statusFilter: any = [];
@@ -30,14 +29,11 @@ export class ContentFilterComponent{
     { id: 4, name: 'PUBLISHED', checked: false },
   ]
 
-  
-
   filteredContent(value:any){
     this.events.emit('filteredContent',value);
   }
 
   changeContentTitle(){
-    console.log(this.filterValue);
     this.events.emit('titleFilter',this.filterValue);
   }
 

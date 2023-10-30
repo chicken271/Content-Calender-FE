@@ -48,9 +48,6 @@ export class AddContentFormComponent implements OnInit{
 
     let contentListComponentClone = new ContentListComponent(this.dataService,this.message,this.events,this.eventEmitterService);
 
-    console.log(newContent);
-    // this.addContent.emit(newContent);
-    // this.events.emit('newContent',newContent);
     contentListComponentClone.addContent(newContent);
     this.addContentForm.reset();
     this.addContentForm.get(['contentTypeControl'])!.setValue('');

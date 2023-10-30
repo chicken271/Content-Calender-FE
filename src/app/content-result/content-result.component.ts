@@ -27,7 +27,6 @@ export class ContentResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchValue = String(this.route.snapshot.paramMap.get('searchValue'));
-    console.log(this.searchValue);
     if(this.searchValue.length!==0){
       this.dataService.searchContent(this.searchValue).subscribe(list => this.contentResult = list);
     }
@@ -77,6 +76,6 @@ export class ContentResultComponent implements OnInit {
       this.contentResult = this.contentResult.filter(c => c!==content);
       this.dataService.deleteContent(content.id).subscribe();
     }else this.messageService.add(`Cancel deletion of content with ID ${content.id} and Title ${content.title}`);
-    
   }
+  
 }
