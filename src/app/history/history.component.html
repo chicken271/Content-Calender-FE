@@ -1,0 +1,19 @@
+<ng-template #Nothing>
+  <div class="container">
+    <h2>Nothing to Show</h2>
+  </div>
+</ng-template>
+
+<ng-template #ShowHistory>
+  <div class="container history-container py-1 bg-dark my-3">
+    <div class="row px-2" *ngFor="let log of messageService.historyLogs">
+      <div class="bg-primary rounded my-1 text-white">{{ log }}</div>
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="messageService.historyLogs.length === 0 then Nothing else ShowHistory "></div>
+
+<div class="container" *ngIf="router.url===currentRoute">
+  <button class="btn btn-primary" (click)="messageService.clear()">Clear History</button>
+</div>

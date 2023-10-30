@@ -1,0 +1,92 @@
+<div class="js-add-content-message" role="alert">
+</div>
+
+<div class="container border border-dark my-4 p-4">
+  <div class="row align-items-center ">
+    <div class="col"><h2>Content Form</h2></div>
+  </div>
+  <form [formGroup]="addContentForm" (ngSubmit)="$event.preventDefault(); submitForm(); ">
+    <div class="mt-3"><h5>Current Date: {{displayDate}}</h5></div>
+
+    <div class="mt-3 ">
+      <label  class="form-label ">Content Title:</label>
+      <input type="text"  placeholder="Title" class="form-control" formControlName="contentTitleControl">
+
+      <div *ngIf="addContentForm.get('contentTitleControl')!.invalid && addContentForm.get('contentTitleControl')!.dirty || addContentForm.get('contentTitleControl')!.touched" class="mt-2">
+        <div *ngIf="addContentForm.get('contentTitleControl')?.errors?.['required']" class="alert alert-danger">
+          Content Title must not be empty
+        </div>
+        <div *ngIf="addContentForm.get('contentTitleControl')?.errors?.['minlength']" class="alert alert-danger">
+          Content Title lengh must be more than 3 characters
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-3">
+      <label class="form-label me-3" for="content-type">Content Type:</label>
+      <select name="content-type" id="" formControlName="contentTypeControl">
+        <option value="" hidden default>Pick a type</option>
+        <option value="VIDEO">Video</option>
+        <option value="ARTICLE">Article</option>
+        <option value="COURSE">Course</option>
+        <option value="MEETING">Meeting</option>
+      </select>
+
+      <div *ngIf="addContentForm.get('contentTypeControl')!.invalid && addContentForm.get('contentTypeControl')!.dirty || addContentForm.get('contentTypeControl')!.touched" class="mt-2">
+        <div *ngIf="addContentForm.get('contentTypeControl')?.errors?.['required']" class="alert alert-danger">
+          Content Type must not be empty
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-3">
+      <label class="form-label me-3" >Content Status:</label>
+      <select  id="" formControlName="contentStatusControl">
+        <option value="" hidden default>Pick a status</option>
+        <option value="IDEA">Idea</option>
+        <option value="IN_PROGRESS">In Progress</option>
+        <option value="COMPLETED">Completed</option>
+        <option value="PUBLISHED">Published</option>
+      </select>
+
+      <div *ngIf="addContentForm.get('contentStatusControl')!.invalid && addContentForm.get('contentStatusControl')!.dirty || addContentForm.get('contentStatusControl')!.touched" class="mt-2">
+        <div *ngIf="addContentForm.get('contentStatusControl')?.errors?.['required']" class="alert alert-danger">
+          Content Status must not be empty
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-3 ">
+      <label  class="form-label ">Content URL:</label>
+      <input type="text"  placeholder="URL" class="form-control" formControlName="contentUrlControl">
+
+      <div *ngIf="addContentForm.get('contentUrlControl')!.invalid && addContentForm.get('contentUrlControl')!.dirty || addContentForm.get('contentUrlControl')!.touched" class="mt-2">
+        <div *ngIf="addContentForm.get('contentUrlControl')?.errors?.['required']" class="alert alert-danger">
+          Content URL not be empty
+        </div>
+        <div *ngIf="addContentForm.get('contentUrlControl')?.errors?.['minlength']" class="alert alert-danger">
+          Content URL must be more than 10 characters
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-3 ">
+      <label  class="form-label ">Content Description</label>
+      <textarea name="" id="" rows="3" placeholder="Description" class="form-control" formControlName="contentDescriptionControl"></textarea>
+
+      <div *ngIf="addContentForm.get('contentDescriptionControl')!.invalid && addContentForm.get('contentDescriptionControl')!.dirty || addContentForm.get('contentDescriptionControl')!.touched" class="mt-2">
+        <div *ngIf="addContentForm.get('contentDescriptionControl')?.errors?.['required']" class="alert alert-danger">
+          Content Description must not be empty
+        </div>
+        <div *ngIf="addContentForm.get('contentDescriptionControl')?.errors?.['minlength']" class="alert alert-danger">
+          Content Description must be more than 10 characters
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-3 ">
+      <button class="btn btn-primary" type="submit" [disabled]="addContentForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>
+

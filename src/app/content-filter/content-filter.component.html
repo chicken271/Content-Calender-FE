@@ -1,0 +1,42 @@
+<div class="container shadow p-3 mb-5 bg-white rounded mt-4">
+  <h3>Filters Box
+  </h3>
+  <div class="row mt-2 mb-1">
+    <div class="small-section-tittle2">
+      <h6>Content Title</h6>
+    </div>
+  </div>
+
+  <div class="type-check-container">
+    <label class="container">
+      <input class="form-control border" type="text" [(ngModel)]="filterValue" (keyup)="changeContentTitle()">
+    </label>
+  </div>
+
+  <div class="row mt-2 mb-1">
+    <div class="small-section-tittle2">
+      <h6>Content Type</h6>
+    </div>
+  </div>
+    <div class="type-check-container">
+      <label *ngFor="let type of contentTypes" class="container">
+        <input type="checkbox" (change)="changeContentType($event, type);">
+        <span class="checkmark"></span>
+        {{type.name}}
+      </label>
+    </div>
+
+    <div class="row mt-2 mb-1">
+      <div class="small-section-tittle2">
+        <h6>Content Status</h6>
+      </div>
+    </div>
+      <div class="type-check-container">
+        <label *ngFor="let status of contentStatuses" class="container">
+          <input type="checkbox" (change)="changeContentStatus($event, status)">
+          <span class="checkmark"></span>
+          {{status.name}}
+        </label>
+      </div>
+
+</div>

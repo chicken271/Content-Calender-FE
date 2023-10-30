@@ -1,0 +1,3 @@
+export enum Type{
+  VIDEO,ARTICLE,COURSE,MEETING
+}

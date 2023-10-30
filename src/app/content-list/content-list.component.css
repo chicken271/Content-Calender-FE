@@ -1,0 +1,24 @@
+.id-title-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.id,.type,.description,.status{
+  margin-left: 10px;
+  color: white;
+}
+
+.title{
+  margin-right: 10px;
+  color: white;
+}
+
+.everything-container{
+  height: 70%;
+  padding-bottom: 20%;
+
+}
+
+.edit-delete-buttons-container{
+  position: absolute;
+}
