@@ -8,14 +8,26 @@ import { ContentDetailsComponent } from './content-details/content-details.compo
 import { ContentResultComponent } from './content-result/content-result.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/home',pathMatch:'full'},
-  {path:'home', component:ContentListComponent},
-  {path:'addContent',component: AddContentFormComponent},
-  {path:'contentDetails/:id',component:ContentDetailsComponent},
-  {path:'search/:searchValue', component:ContentResultComponent},
-  {path:'historyLogs',component:HistoryComponent},
-  {path:'**', component: NotfoundComponent},
-  
+  // {path:'',redirectTo:'/home',pathMatch:'full'},
+  // {path:'home', component:ContentListComponent},
+  // {path:'addContent',component: AddContentFormComponent},
+  // {path:'contentDetails/:id',component:ContentDetailsComponent},
+  // {path:'search/:searchValue', component:ContentResultComponent},
+  // {path:'historyLogs',component:HistoryComponent},
+  // {path:'**', component: NotfoundComponent},
+  {path: '', redirectTo:'/content', pathMatch:'full'},
+  {
+    path: 'content',
+    children: [
+      { path: '', component: ContentListComponent },
+      { path: 'add', component:AddContentFormComponent },
+      { path: 'details/:id', component: ContentDetailsComponent},
+      { path: 'search/:searchValue', component:ContentResultComponent},
+      { path: 'history', component: HistoryComponent },
+      { path: '**',component: NotfoundComponent}
+    ]
+  },
+  { path:'**',component:NotfoundComponent }
 ];
 
 @NgModule({

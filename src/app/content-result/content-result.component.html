@@ -1,3 +1,5 @@
+<navbar></navbar>
+
 <content-filter></content-filter>
 
 <ng-template #showNothing>
@@ -39,11 +41,11 @@
 <ng-template #showContent>
   <div class="container">
     <div class="row gx-5 gy-3 mt-2" >
-      <div *ngFor="let content of filterResult()" class="col-6 col-md-4">
+      <div *ngFor="let content of filterResult(),trackBy: trackByContentId" class="col-6 col-md-4">
         <div class="border border-primary bg-dark everything-container">
 
           <div class="edit-delete-buttons-container">
-            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" routerLink="/contentDetails/{{content.id}}"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" routerLink="/content/details/{{content.id}}"><i class="fa fa-edit"></i></button>
             <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" (click)="deleteContent(content)"><i class="fa fa-trash"></i></button>
           </div>
 

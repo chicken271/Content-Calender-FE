@@ -21,9 +21,11 @@ export class ContentListComponent implements OnInit {
   searchValue = '';
   searchResult: IContent[] = [];
 
+  displayHistory = false;
+
   newContent:IContent = {title:'',description:'',status: Status.COMPLETED, contentType: Type.ARTICLE,url: '', dateCreated:new Date};
 
-  constructor(private dataService: DataService,private messageService: MessageService,private events: EventService, private eventEmitterService: EventEmittertService){}
+  constructor(private dataService: DataService,public messageService: MessageService,private events: EventService, private eventEmitterService: EventEmittertService){}
 
   ngOnInit(): void {
     this.dataService.getContent().subscribe(list => this.contentList = list);
@@ -97,8 +99,11 @@ export class ContentListComponent implements OnInit {
     
   }
 
-
   trackByContentId(index:number,content:any){
     return content.id;
+  }
+
+  toggleHistory() {
+    this.displayHistory = !this.displayHistory;
   }
 }

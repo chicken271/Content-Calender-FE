@@ -11,16 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  displayHistory = false;
 
   checkRoute = '/historyLogs'
 
   constructor(private dataService: DataService, public messageService: MessageService, private events: EventService, public router: Router) { }
 
   ngOnInit(): void {}
-
-  toggleHistory() {
-    this.displayHistory = !this.displayHistory;
-  }
 
 }

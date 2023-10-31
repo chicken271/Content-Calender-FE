@@ -1,3 +1,5 @@
+<navbar></navbar>
+
 <ng-template #Nothing>
   <div class="container">
     <h2>Nothing to Show</h2>
@@ -14,6 +16,6 @@
 
 <div *ngIf="messageService.historyLogs.length === 0 then Nothing else ShowHistory "></div>
 
-<div class="container" *ngIf="router.url===currentRoute">
-  <button class="btn btn-primary" (click)="messageService.clear()">Clear History</button>
+<div class="container">
+  <button class="btn btn-danger" (click)="messageService.clear()">Clear History</button>
 </div>

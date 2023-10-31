@@ -24,11 +24,7 @@ export class NavbarComponent{
 
   searchContent(event: any) {
     this.temp = event.value;
-
-    // this.dataService.searchContent(this.temp).subscribe(value => {this.events.emit('searchResult',value)});
-    // this.router.navigateByUrl(`/search/${this.temp}`);
-    
-    this.redirectTo(`search/${this.temp}`);
+    this.redirectTo(`content/search/${this.temp}`);
     this.customSearchElement.nativeElement.value = '';
   }
 

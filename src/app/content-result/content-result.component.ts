@@ -78,4 +78,7 @@ export class ContentResultComponent implements OnInit {
     }else this.messageService.add(`Cancel deletion of content with ID ${content.id} and Title ${content.title}`);
   }
   
+  trackByContentId(index:number,content:any){
+    return content.id;
+  }
 }
