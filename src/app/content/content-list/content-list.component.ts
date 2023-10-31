@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IContent } from '../model/content';
-import { DataService } from '../core/data.service';
-import { MessageService } from '../core/message.service';
-import { EventService } from '../core/event.service';
-import { Status } from '../model/status';
-import { Type } from '../model/type';
-import { EventEmittertService } from '../core/event.emitter.service';
+import { IContent } from '../../model/content';
+import { DataService } from '../../core/data.service';
+import { MessageService } from '../../core/message.service';
+import { EventService } from '../../core/event.service';
+import { Status } from '../../model/status';
+import { Type } from '../../model/type';
+import { EventEmittertService } from '../../core/event.emitter.service';
 @Component({
   selector: 'content-list',
   templateUrl: './content-list.component.html',

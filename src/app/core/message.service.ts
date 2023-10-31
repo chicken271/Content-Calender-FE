@@ -4,7 +4,7 @@ import { convertToDateHistoryFormat } from '../shared/convertDate';
   providedIn: 'root'
 })
 export class MessageService {
-  historyLogs: string[]=['a','b','c','d','e','f','g'];
+  historyLogs: string[]=['Content Calender Running'];
   currentDate: Date= new Date;
 
   add(line: string, operation?: string){

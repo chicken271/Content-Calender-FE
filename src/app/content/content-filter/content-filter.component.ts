@@ -1,6 +1,6 @@
 import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
-import { IContent } from '../model/content';
-import { EventService } from '../core/event.service';
+import { IContent } from '../../model/content';
+import { EventService } from '../../core/event.service';
 
 @Component({
   selector: 'content-filter',

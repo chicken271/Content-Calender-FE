@@ -1,14 +1,14 @@
 import { Component, Output, EventEmitter, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { Type } from '../model/type';
+import { Type } from '../../model/type';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { DataService } from '../core/data.service';
-import { IContent } from '../model/content';
-import { convertToDateDisplayFormat, convertToDateSqlFormat } from '../shared/convertDate';
-import { EventService } from '../core/event.service';
+import { DataService } from '../../core/data.service';
+import { IContent } from '../../model/content';
+import { convertToDateDisplayFormat, convertToDateSqlFormat } from '../../shared/convertDate';
+import { EventService } from '../../core/event.service';
 import { ContentListComponent } from '../content-list/content-list.component';
-import { EventEmittertService } from '../core/event.emitter.service';
-import { MessageService } from '../core/message.service';
+import { EventEmittertService } from '../../core/event.emitter.service';
+import { MessageService } from '../../core/message.service';
 
 @Component({
   selector: 'add-content-form',

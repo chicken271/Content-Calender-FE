@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
-import { EventService } from '../core/event.service';
-import { DataService } from '../core/data.service';
-import { IContent } from '../model/content';
+import { EventService } from '../../core/event.service';
+import { DataService } from '../../core/data.service';
+import { IContent } from '../../model/content';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { ElementRef } from '@angular/core';
 import { ContentListComponent } from '../content-list/content-list.component';
-import { MessageService } from '../core/message.service';
-import { EventEmittertService } from '../core/event.emitter.service';
+import { MessageService } from '../../core/message.service';
+import { EventEmittertService } from '../../core/event.emitter.service';
 
 @Component({
   selector: 'navbar',

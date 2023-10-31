@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../core/data.service';
-import { IContent } from '../model/content';
-import { Status } from '../model/status';
-import { Type } from '../model/type';
+import { DataService } from '../../core/data.service';
+import { IContent } from '../../model/content';
+import { Status } from '../../model/status';
+import { Type } from '../../model/type';
 import { ActivatedRoute } from '@angular/router';
-import { convertToDateDisplayFormat, convertToDateHistoryFormat } from '../shared/convertDate';
+import { convertToDateDisplayFormat, convertToDateHistoryFormat } from '../../shared/convertDate';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
