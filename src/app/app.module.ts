@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventEmittertService } from './core/event.emitter.service';
 import { ContentModule } from './content/content.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ContentModule } from './content/content.module';
   imports: [
     BrowserModule,
     ContentModule,
+    UserModule,
     AppRoutingModule
   ],
   providers: [EventEmittertService], 

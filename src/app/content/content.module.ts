@@ -32,7 +32,8 @@ import { ContentRoutingModule } from './content-routing.module';
     ContentRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ],
   exports:[
     ContentListComponent,

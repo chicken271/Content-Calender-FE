@@ -1,0 +1,9 @@
+.tos-link{
+  cursor: pointer;
+  color: blue; 
+  text-decoration: underline;
+}
+
+.tos-link:hover{
+  color: darkblue;
+}

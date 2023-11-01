@@ -5,8 +5,9 @@ p{
 }
 
 html {
-  height: 800px;
+  height: 650px;
 }
 body {
-  height: 800px;
+  height: 650px;
+  background-color: #eeee;
 }
