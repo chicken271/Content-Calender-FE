@@ -12,11 +12,11 @@ const routes: Routes = [
   {
     path: 'content',
     children: [
-      { path: '', component: ContentListComponent },
-      { path: 'add', component: AddContentFormComponent },
-      { path: 'details/:id', component: ContentDetailsComponent },
-      { path: 'search/:searchValue', component: ContentResultComponent },
-      { path: 'history', component: HistoryComponent },
+      { path: '', component: ContentListComponent, data: {animation: 'contentPage'} },
+      { path: 'add', component: AddContentFormComponent, data: {animation: 'addContentPage'} },
+      { path: 'details/:id', component: ContentDetailsComponent, data: {animation: 'contentDetailsPage'} },
+      { path: 'search/:searchValue', component: ContentResultComponent, data: {animation: 'searchContentPage'} },
+      { path: 'history', component: HistoryComponent, data: {animation: 'historyPage'} },
       { path: '**', component: NotfoundComponent }
     ]
   }

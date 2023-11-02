@@ -1,4 +1,6 @@
 <!-- <content-list [contentList]="filterData()" (contentId)="deleteContent($event)"></content-list> -->
 <!-- <add-content-form (addContent)="addNewContent($event)"></add-content-form> -->
 
-<router-outlet></router-outlet>
+<div [@routeAnimations]="getRouteAnimationData()">
+  <router-outlet></router-outlet>
+</div>

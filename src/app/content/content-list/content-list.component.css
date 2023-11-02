@@ -62,3 +62,11 @@
   display: flex;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
 }
+
+.content-ci{
+  transition: transform 250ms;
+}
+
+.content-ci:hover{
+  transform: translateY(-20px);
+}

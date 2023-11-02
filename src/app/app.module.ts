@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EventEmittertService } from './core/event.emitter.service';
 import { ContentModule } from './content/content.module';
 import { UserModule } from './user/user.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     ContentModule,
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [EventEmittertService], 
   bootstrap: [AppComponent]

@@ -6,10 +6,15 @@ import { EventService } from '../../core/event.service';
 import { Status } from '../../model/status';
 import { Type } from '../../model/type';
 import { EventEmittertService } from '../../core/event.emitter.service';
+import { fadeAnimation } from 'src/app/animations/fadeAnimation';
+import { animate, stagger, style, trigger } from '@angular/animations';
 @Component({
   selector: 'content-list',
   templateUrl: './content-list.component.html',
-  styleUrls: ['./content-list.component.css']
+  styleUrls: ['./content-list.component.css'],
+  animations: [
+    fadeAnimation
+  ]
 })
 export class ContentListComponent implements OnInit {
   @Input()contentList: IContent[] = [];
@@ -84,6 +89,8 @@ export class ContentListComponent implements OnInit {
         return t != null;
       })
     }
+    console.log(filteredContent.length);
+
     return filteredContent;
   }
 

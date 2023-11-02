@@ -14,6 +14,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentRoutingModule } from './content-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ContentRoutingModule } from './content-routing.module';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    
+    BrowserAnimationsModule
   ],
   exports:[
     ContentListComponent,
