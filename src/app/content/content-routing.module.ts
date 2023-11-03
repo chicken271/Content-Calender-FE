@@ -10,7 +10,7 @@ import { NotfoundComponent } from '../notfound/notfound.component';
 
 const routes: Routes = [
   {
-    path: 'content',
+    path: '',
     children: [
       { path: '', component: ContentListComponent, data: {animation: 'contentPage'} },
       { path: 'add', component: AddContentFormComponent, data: {animation: 'addContentPage'} },

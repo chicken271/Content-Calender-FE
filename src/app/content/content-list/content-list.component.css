@@ -68,5 +68,6 @@
 }
 
 .content-ci:hover{
+  transition: transform 150ms;
   transform: translateY(-20px);
 }

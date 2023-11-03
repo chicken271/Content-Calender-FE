@@ -1,13 +1,10 @@
 import { Component, Output, EventEmitter, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { Type } from '../../model/type';
 import { FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from '../../core/data.service';
 import { IContent } from '../../model/content';
 import { convertToDateDisplayFormat, convertToDateSqlFormat } from '../../shared/convertDate';
 import { EventService } from '../../core/event.service';
 import { ContentListComponent } from '../content-list/content-list.component';
-import { EventEmittertService } from '../../core/event.emitter.service';
 import { MessageService } from '../../core/message.service';
 
 @Component({
@@ -20,7 +17,7 @@ export class AddContentFormComponent implements OnInit{
   Date = convertToDateSqlFormat(this.currentDate);
   displayDate = convertToDateDisplayFormat(this.currentDate);
 
-  constructor(private fb: FormBuilder, private dataService: DataService, private events: EventService, private eventEmitterService: EventEmittertService, private message: MessageService){}
+  constructor(private fb: FormBuilder, private dataService: DataService, private events: EventService, private message: MessageService){}
 
   addContentForm = this.fb.group({
     contentTitleControl: ['',[Validators.required,Validators.minLength(3)]],
@@ -46,7 +43,7 @@ export class AddContentFormComponent implements OnInit{
     const addDate = convertToDateSqlFormat(this.currentDate);
     const newContent:IContent = {title:title,description: description,status: status, contentType: typetype, dateCreated: this.currentDate,dateUpdated: null,url:url}
 
-    let contentListComponentClone = new ContentListComponent(this.dataService,this.message,this.events,this.eventEmitterService);
+    let contentListComponentClone = new ContentListComponent(this.dataService,this.message,this.events);
 
     contentListComponentClone.addContent(newContent);
     this.addContentForm.reset();

@@ -4,11 +4,15 @@ import { DataService } from '../../core/data.service';
 import { MessageService } from '../../core/message.service';
 import { EventService } from '../../core/event.service';
 import { ActivatedRoute } from '@angular/router';
+import { fadeAnimation } from 'src/app/animations/fadeAnimation';
 
 @Component({
   selector: 'app-content-result',
   templateUrl: './content-result.component.html',
-  styleUrls: ['./content-result.component.css']
+  styleUrls: ['./content-result.component.css'],
+  animations:[
+    fadeAnimation
+  ]
 })
 export class ContentResultComponent implements OnInit {
   contentResult:IContent[] = [];

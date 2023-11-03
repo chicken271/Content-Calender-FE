@@ -10,11 +10,9 @@ import { ContentDetailsComponent } from './content-details/content-details.compo
 import { AddContentFormComponent } from './add-content-form/add-content-form.component';
 import { NotfoundComponent } from '../notfound/notfound.component';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentRoutingModule } from './content-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -29,12 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     ContentRoutingModule,
-    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
   ],
   exports:[
     ContentListComponent,

@@ -22,3 +22,12 @@
 .edit-delete-buttons-container{
   position: absolute;
 }
+
+.content-ci{
+  transition: transform 250ms;
+}
+
+.content-ci:hover{
+  transition: transform 150ms;
+  transform: translateY(-20px);
+}

@@ -42,8 +42,8 @@
 <ng-template #showContent>
   <div class="container vh-100 pt-3">
     <div class="row gx-5 gy-3 mt-2">
-      <div [@fadeAnimation]="'in'" *ngFor="let content of filterData(); trackBy: trackByContentId" class="col-6 col-md-4 content-ci data-mdb-animation-delay">
-        <div class="border border-primary bg-dark everything-container">
+      <div [@fadeAnimation]="'in'" *ngFor="let content of filterData(); trackBy: trackByContentId" class="col-6 col-md-4  data-mdb-animation-delay">
+        <div class="border border-primary bg-dark everything-container content-ci">
  
           <div class="edit-delete-buttons-container">
             <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" routerLink="/content/details/{{content.id}}"><i class="fa fa-edit"></i></button>

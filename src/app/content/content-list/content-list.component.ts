@@ -5,7 +5,6 @@ import { MessageService } from '../../core/message.service';
 import { EventService } from '../../core/event.service';
 import { Status } from '../../model/status';
 import { Type } from '../../model/type';
-import { EventEmittertService } from '../../core/event.emitter.service';
 import { fadeAnimation } from 'src/app/animations/fadeAnimation';
 @Component({
   selector: 'content-list',
@@ -29,7 +28,7 @@ export class ContentListComponent implements OnInit {
 
   newContent:IContent = {title:'',description:'',status: Status.COMPLETED, contentType: Type.ARTICLE,url: '', dateCreated:new Date};
 
-  constructor(private dataService: DataService,public messageService: MessageService,private events: EventService, private eventEmitterService: EventEmittertService){}
+  constructor(private dataService: DataService,public messageService: MessageService,private events: EventService){}
 
   ngOnInit(): void {
     this.dataService.getContent().subscribe(list => this.contentList = list);
@@ -88,8 +87,6 @@ export class ContentListComponent implements OnInit {
         return t != null;
       })
     }
-    console.log(filteredContent.length);
-
     return filteredContent;
   }
 
