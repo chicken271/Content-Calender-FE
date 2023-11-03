@@ -7,7 +7,6 @@ import { Status } from '../../model/status';
 import { Type } from '../../model/type';
 import { EventEmittertService } from '../../core/event.emitter.service';
 import { fadeAnimation } from 'src/app/animations/fadeAnimation';
-import { animate, stagger, style, trigger } from '@angular/animations';
 @Component({
   selector: 'content-list',
   templateUrl: './content-list.component.html',

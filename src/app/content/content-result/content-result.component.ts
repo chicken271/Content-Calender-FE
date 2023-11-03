@@ -3,11 +3,7 @@ import { IContent } from '../../model/content';
 import { DataService } from '../../core/data.service';
 import { MessageService } from '../../core/message.service';
 import { EventService } from '../../core/event.service';
-import { EventEmittertService } from '../../core/event.emitter.service';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
-import { Status } from '../../model/status';
-import { Type } from '../../model/type';
 
 @Component({
   selector: 'app-content-result',
