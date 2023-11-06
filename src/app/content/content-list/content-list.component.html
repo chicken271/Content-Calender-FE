@@ -59,6 +59,24 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" (click)="minusPage($event)" [ngClass]="{'disabled': pageNumber === 0}">Previous</a>
+            </li>
+
+            <li class="page-item" *ngFor="let page2 of pages; let i = index">
+              <a class="page-link" (click)="setPage(i,$event)" [ngClass]="{'active':pageNumber === i}">{{i+1}}</a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" (click)="plusPage($event)" [ngClass]="{'disabled': pageNumber === pages.length-1}">Next</a>
+            </li>
+          </ul>
+      </div>
+    </div>
   </div>
 </ng-template>
 
@@ -81,3 +99,4 @@
 <div class="sth p-3 rounded shadow-lg p-3 mb-5 rounded" *ngIf="displayHistory">
   <h3 class="justify-content-center align-content-center">Hi</h3>
 </div>
+

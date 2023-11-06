@@ -28,6 +28,15 @@ export class DataService {
     )
   }
 
+  getContentByPage(page: number){
+    const url = `http://localhost:8080/api/content?page=${page}&size=6`;
+    return this.http.get(url)
+    .pipe(
+      tap(_=> this.log(`Navigate to Content page ${page}`)),
+      catchError(this.handleError<IContent[]>('getContentByPage', []))
+    )
+  }
+
   searchContent(keyword: string){
     const url = `http://localhost:8080/api/content/search/${keyword}`;
     return this.http.get<IContent[]>(url)

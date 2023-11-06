@@ -30,8 +30,13 @@ export class ContentListComponent implements OnInit {
 
   constructor(private dataService: DataService,public messageService: MessageService,private events: EventService){}
 
+  pages: Array<Number> = [];
+  pageNumber: number = 0;
+
   ngOnInit(): void {
-    this.dataService.getContent().subscribe(list => this.contentList = list);
+    // this.dataService.getContent().subscribe(list => this.contentList = list);
+
+    this.getContents();
 
     this.events.listen('typeFilter', (value: any) => {
       this.typeFilter = value;
@@ -45,6 +50,31 @@ export class ContentListComponent implements OnInit {
       this.titleFilter = value;
     });
 
+  }
+
+  minusPage(event:any){
+    event.preventDefault();
+    this.pageNumber--;
+    this.getContents();
+  }
+
+  plusPage(event:any){
+    event.preventDefault();
+    this.pageNumber++;
+    this.getContents();
+  }
+
+  getContents(){
+    this.dataService.getContentByPage(this.pageNumber).subscribe((list:any) => {
+      this.contentList = list['content'];
+      this.pages = new Array(list['totalPages']);
+    });
+  }
+
+  setPage(pageNumber:number, event:any){
+    event.preventDefault();
+    this.pageNumber = pageNumber;
+    this.getContents();
   }
 
   getSearchValue(){
