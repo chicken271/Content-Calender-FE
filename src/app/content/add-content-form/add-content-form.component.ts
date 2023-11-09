@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild,OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../core/data.service';
 import { IContent } from '../../model/content';
