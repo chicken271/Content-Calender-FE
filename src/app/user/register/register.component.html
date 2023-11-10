@@ -15,9 +15,8 @@
                     <i class="fa fa-user fa-lg me-3 fa-fw" style="color: blue;"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" class="form-control" placeholder="Username" formControlName="usernameControl"
-                      [ngClass]="{ 'is-invalid': registerUserForm.get('usernameControl')!.invalid && (registerUserForm.get('usernameControl')!.dirty || registerUserForm.get('usernameControl')!.touched),
-                      'is-valid': registerUserForm.get('usernameControl')!.valid && (registerUserForm.get('usernameControl')!.dirty || registerUserForm.get('usernameControl')!.touched) }"
-                        />
+                        [ngClass]="{ 'is-invalid': registerUserForm.get('usernameControl')!.invalid && (registerUserForm.get('usernameControl')!.dirty || registerUserForm.get('usernameControl')!.touched),
+                      'is-valid': registerUserForm.get('usernameControl')!.valid && (registerUserForm.get('usernameControl')!.dirty || registerUserForm.get('usernameControl')!.touched) }" />
                       <div
                         *ngIf="registerUserForm.get('usernameControl')!.invalid && registerUserForm.get('usernameControl')!.dirty || registerUserForm.get('usernameControl')!.touched"
                         class="text-danger d-block">
@@ -35,9 +34,8 @@
                     <i class="fa fa-envelope fa-lg me-3 fa-fw" style="color: red"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="email" class="form-control" placeholder="Email" formControlName="emailControl"
-                      [ngClass]="{ 'is-invalid': registerUserForm.get('emailControl')!.invalid && (registerUserForm.get('emailControl')!.dirty || registerUserForm.get('emailControl')!.touched),
-                      'is-valid': registerUserForm.get('emailControl')!.valid && (registerUserForm.get('emailControl')!.dirty || registerUserForm.get('emailControl')!.touched) }"
-                      />
+                        [ngClass]="{ 'is-invalid': registerUserForm.get('emailControl')!.invalid && (registerUserForm.get('emailControl')!.dirty || registerUserForm.get('emailControl')!.touched),
+                      'is-valid': registerUserForm.get('emailControl')!.valid && (registerUserForm.get('emailControl')!.dirty || registerUserForm.get('emailControl')!.touched) }" />
 
                       <div
                         *ngIf="registerUserForm.get('emailControl')!.invalid && registerUserForm.get('emailControl')!.dirty || registerUserForm.get('emailControl')!.touched"
@@ -58,8 +56,7 @@
                       <input type="password" class="form-control" placeholder="Password"
                         formControlName="passwordControl"
                         [ngClass]="{ 'is-invalid': registerUserForm.get('passwordControl')!.invalid && (registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched),
-                      'is-valid': registerUserForm.get('passwordControl')!.valid && (registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched) }"
-                        />
+                      'is-valid': registerUserForm.get('passwordControl')!.valid && (registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched) }" />
 
                       <div
                         *ngIf="registerUserForm.get('passwordControl')!.invalid && registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched"
@@ -77,17 +74,23 @@
                   <div class="d-flex flex-row align-items-center mb-3">
                     <i class="fa fa-key fa-lg me-3 fa-fw" style="color: orange;"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control"            placeholder="Confirm Password"
+                      <input type="password" id="form3Example4cd" class="form-control" placeholder="Confirm Password"
                         formControlName="confirmPasswordControl"
-                        
-                        />
+                        [ngClass]="{ 'is-invalid': (registerUserForm.errors !== null && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched)) || registerUserForm.get('confirmPasswordControl')?.invalid && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched),
+                        'is-valid': registerUserForm.errors === null && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched) }"/>
+
+                        <div
+                          *ngIf="registerUserForm.get('confirmPasswordControl')!.invalid && registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched"
+                          class="text-danger d-block">
+                          <small *ngIf="registerUserForm.get('confirmPasswordControl')?.errors?.['required']">
+                          Confirm password must not be empty
+                          </small>
+                      </div>
 
                       <div
-                        *ngIf="registerUserForm.get('confirmPasswordControl')!.invalid && registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched" class="text-danger d-block">
-                        <small *ngIf="registerUserForm.get('confirmPasswordControl')?.errors?.['required']">
-                          Confirm password must not be null
-                        </small>
-                        <small *ngIf="registerUserForm.validator === null">
+                        *ngIf="registerUserForm.errors !== null && registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched"
+                        class="text-danger d-block">
+                        <small *ngIf="registerUserForm.errors !== null">
                           Confirm password must be the same as password
                         </small>
                       </div>
@@ -95,18 +98,19 @@
                   </div>
 
                   <div class="form-check d-flex justify-content-center mb-4">
-                    <input class="form-check-input me-2" type="checkbox" value="" formControlName="checkTosControl" />
-                    <p class="form-check-label">
-                      I agree all statements in
-                      <a class="tos-link" (click)="termsOfService()">Terms of Service</a>
-                    </p>
-                  </div>
-
-                  <div
-                    *ngIf="registerUserForm.get('checkTosControl')!.invalid && registerUserForm.get('checkTosControl')!.dirty || registerUserForm.get('checkTosControl')!.touched">
-                    <div *ngIf="registerUserForm.get('checkTosControl')?.errors?.['required']"
-                      class="alert alert-danger">
-                      You have to agree to TOS in order to register
+                    <div class="form-outline flex-fill mb-1">
+                      <input class="form-check-input me-2" type="checkbox" value="" formControlName="checkTosControl" />
+                      <p class="form-check-label">
+                        I agree all statements in
+                        <a class="tos-link" (click)="termsOfService()">Terms of Service</a>
+                      </p>
+                      <div
+                        *ngIf="registerUserForm.get('checkTosControl')!.invalid && registerUserForm.get('checkTosControl')!.dirty || registerUserForm.get('checkTosControl')!.touched"
+                        class="text-danger d-block">
+                        <small *ngIf="registerUserForm.get('checkTosControl')?.errors?.['required']">
+                          You have to agree to TOS in order to register
+                        </small>
+                      </div>
                     </div>
                   </div>
 

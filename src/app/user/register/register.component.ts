@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { SelectorMatcher } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { catchError, map, of } from 'rxjs';
+import { UserService } from 'src/app/core/user.service';
 import { IUser } from 'src/app/model/user';
 
 @Component({
@@ -7,12 +10,14 @@ import { IUser } from 'src/app/model/user';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   termsOfService(){
     alert("There is no Terms of Service !!");
   }
 
-  constructor(private fb: FormBuilder){}
+  ngOnInit(): void {}
+
+  constructor(private fb: FormBuilder, private userService: UserService){}
 
   registerUserForm = this.fb.group({
     usernameControl:['',[Validators.required, Validators.minLength(3)]],
@@ -27,11 +32,15 @@ export class RegisterComponent {
   matchPassword(ac: AbstractControl){
     let password = ac.get('passwordControl')?.value;
     let cPassword = ac.get('confirmPasswordControl')?.value;
-    console.log(password);
-    console.log(cPassword);
-    if(password !== cPassword){
-      return { notMatch: password };
-    }else return null;
+    return password === cPassword ? null : {'notMatched': true}; 
+  }
+
+  uniqueEmail(ac: AbstractControl){
+    let uemail = ac.get('emailControl')?.value;
+    return this.userService.getUserByEmail(uemail).pipe(
+      map((usedEmail)=>(usedEmail)? {'usedEmail': true} : null),
+      catchError(()=> of(null))
+    );
   }
 
   submitForm(){
