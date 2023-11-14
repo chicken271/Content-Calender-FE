@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable} from '@angular/core';
-import { Observable,catchError,of } from 'rxjs';
+import { Observable,catchError,of, tap } from 'rxjs';
 import { IUser } from '../model/user';
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,14 @@ export class UserService {
     return this.http.get(url)
     .pipe(
       catchError(this.handleError<IUser>('getUserByEmail',{} as IUser))
+    );
+  }
+
+  registerUser(user: IUser){
+    const url = `http://localhost:8080/api/user/register`;
+    console.log(user);
+    return this.http.post<IUser>(url, user).pipe(
+      catchError(this.handleError<IUser>('registerUser', {} as IUser))
     );
   }
 

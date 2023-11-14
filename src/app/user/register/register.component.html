@@ -9,7 +9,7 @@
 
                 <p class="text-center h2 fw-bold mb-5 mx-1 mx-md-4 mt-4">Content Calender</p>
 
-                <form class="mx-1 mx-md-5" [formGroup]="registerUserForm" (ngSubmit)="$event.preventDefault();">
+                <form class="mx-1 mx-md-5" [formGroup]="registerUserForm" (ngSubmit)="$event.preventDefault(); submitForm()">
 
                   <div class="d-flex flex-row align-items-center mb-3">
                     <i class="fa fa-user fa-lg me-3 fa-fw" style="color: blue;"></i>
@@ -47,6 +47,14 @@
                           Email must be in valid format
                         </small>
                       </div>
+
+                      <div
+                        *ngIf="registerUserForm.get('emailControl')!.valid && registerUserForm.get('emailControl')!.dirty || registerUserForm.get('emailControl')!.touched"
+                        class="text-danger d-block ">
+                        <small *ngIf="registerUserForm.get('emailControl')?.errors?.['usedEmail']">
+                          Email is already registred
+                        </small>
+                      </div>
                     </div>
                   </div>
 
@@ -56,7 +64,7 @@
                       <input type="password" class="form-control" placeholder="Password"
                         formControlName="passwordControl"
                         [ngClass]="{ 'is-invalid': registerUserForm.get('passwordControl')!.invalid && (registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched),
-                      'is-valid': registerUserForm.get('passwordControl')!.valid && (registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched) }" />
+                      'is-valid': registerUserForm.get('passwordControl')!.valid && (registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched) }" autocomplete="off"/>
 
                       <div
                         *ngIf="registerUserForm.get('passwordControl')!.invalid && registerUserForm.get('passwordControl')!.dirty || registerUserForm.get('passwordControl')!.touched"
@@ -77,7 +85,7 @@
                       <input type="password" id="form3Example4cd" class="form-control" placeholder="Confirm Password"
                         formControlName="confirmPasswordControl"
                         [ngClass]="{ 'is-invalid': (registerUserForm.errors !== null && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched)) || registerUserForm.get('confirmPasswordControl')?.invalid && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched),
-                        'is-valid': registerUserForm.errors === null && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched) }"/>
+                        'is-valid': registerUserForm.errors === null && (registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched) }" autocomplete="off"/>
 
                         <div
                           *ngIf="registerUserForm.get('confirmPasswordControl')!.invalid && registerUserForm.get('confirmPasswordControl')!.dirty || registerUserForm.get('confirmPasswordControl')!.touched"
