@@ -7,18 +7,23 @@
           alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 px-3">
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="$event.preventDefault; submitForm()">
           <div class="mb-4">
             <h2>Content Calender Login</h2>
           </div>
           <!-- Email input -->
+
+          <div class="form-outline my-3 alert alert-danger" *ngIf="isLoginFailed">
+            Wrong username or wrong password !!
+          </div>
+
           <div class="form-outline my-3">
-            <input type="email" id="form1Example13" class="form-control" placeholder="Email Address" />
+            <input type="email" id="form1Example13" class="form-control" placeholder="Username" formControlName="loginUsernameControl"/>
           </div>
 
           <!-- Password input -->
           <div class="form-outline my-4">
-            <input type="password" id="form1Example23" class="form-control" placeholder="Password" />
+            <input type="password" id="form1Example23" class="form-control" placeholder="Password" formControlName="loginPasswordControl" autocomplete="off"/>
           </div>
 
           <div class="d-flex justify-content-between align-items-center my-3">
@@ -36,7 +41,7 @@
 
           <!-- Submit button -->
           <div>
-            <button class="btn btn-primary btn-block w-100">Sign in</button>
+            <button class="btn btn-primary btn-block w-100" type="submit" [disabled]="loginForm.invalid">Sign in</button>
           </div>
 
           <div class="divider justify-content-center my-4">

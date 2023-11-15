@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   constructor(private contexts: ChildrenOutletContexts) { }
 
   ngOnInit(): void {}
-
+ 
   getRouteAnimationData(){
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
-}
+} 

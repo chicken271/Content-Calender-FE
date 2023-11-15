@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { authInterceptorProviders } from './shared/http.interceptor';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [], 
+  providers: [
+    authInterceptorProviders
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

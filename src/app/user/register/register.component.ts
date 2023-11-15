@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
     alert("There is no Terms of Service !!");
   }
 
+  registerSuccess = false;
+
   registerUserForm:FormGroup = {} as FormGroup;
   ngOnInit(): void {
     this.registerUserForm = this.fb.group({

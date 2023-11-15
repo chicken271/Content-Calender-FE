@@ -13,6 +13,7 @@
     </div>
   </div> 
   <div class="pe-3">
-    <button class="btn btn-primary">Profile</button>
+    <button class="btn btn-primary" *ngIf="tokenStorageService.getToken()">Profile</button>
+    <button class="btn btn-danger" (click)="logout()" *ngIf="tokenStorageService.getToken()">Logout</button>
   </div>
 </nav>

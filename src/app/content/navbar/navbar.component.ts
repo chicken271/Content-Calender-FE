@@ -5,6 +5,7 @@ import { IContent } from '../../model/content';
 import { Router } from '@angular/router';
 import { ElementRef } from '@angular/core';
 import { MessageService } from '../../core/message.service';
+import { TokenStorageService } from 'src/app/core/storage.service';
 
 @Component({
   selector: 'navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent{
   temp = '';
   searchResult: IContent[] = [];
 
-  constructor(private events: EventService, private dataService: DataService, private router: Router,private message: MessageService) { }
+  constructor(private events: EventService, private dataService: DataService, private router: Router,private message: MessageService, public tokenStorageService: TokenStorageService) { }
   
   @ViewChild('customSearch', { static: true }) customSearchElement: ElementRef = {} as ElementRef;
 
@@ -31,4 +32,8 @@ export class NavbarComponent{
     });
   }
 
+  logout(){
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
 }

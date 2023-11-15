@@ -16,7 +16,7 @@ import { ContentRoutingModule } from './content-routing.module';
 
 @NgModule({
   declarations: [
-    ContentListComponent,
+    ContentListComponent,  
     NavbarComponent,
     HistoryComponent,
     ContentResultComponent,

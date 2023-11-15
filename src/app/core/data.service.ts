@@ -4,16 +4,18 @@ import { Observable, of } from 'rxjs';
 import { IContent } from '../model/content';
 import { catchError,map,tap } from 'rxjs';
 import { MessageService } from './message.service';
+import { TokenStorageService } from './storage.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private http: HttpClient, private messageService: MessageService){}
+  constructor(private http: HttpClient, private messageService: MessageService, private tokenStorageService: TokenStorageService){}
 
   private contentURL = "http://localhost:8080/api/content";
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Authorization': 'Bearer ' + this.tokenStorageService.getToken() })
   };
 
   log(message: string,op?: string | 'DataService'){
@@ -28,8 +30,19 @@ export class DataService {
     )
   }
 
+  // getContentByPage(page: number){
+  //   const url = `http://localhost:8080/api/content?page=${page}&size=6`;
+
+  //   return this.http.get(url, {headers: new HttpHeaders({ 'Authorization': 'Bearer ' + this.tokenStorageService.getToken() })})
+  //   .pipe(
+  //     tap(_=> this.log(`Navigate to Content page ${page}`)),
+  //     catchError(this.handleError<IContent[]>('getContentByPage', []))
+  //   )
+  // }
+
   getContentByPage(page: number){
     const url = `http://localhost:8080/api/content?page=${page}&size=6`;
+
     return this.http.get(url)
     .pipe(
       tap(_=> this.log(`Navigate to Content page ${page}`)),

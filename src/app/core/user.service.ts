@@ -18,9 +18,18 @@ export class UserService {
 
   registerUser(user: IUser){
     const url = `http://localhost:8080/api/user/register`;
-    console.log(user);
     return this.http.post<IUser>(url, user).pipe(
       catchError(this.handleError<IUser>('registerUser', {} as IUser))
+    );
+  }
+
+  loginUser(user:{username:string,password:string}){
+    const url = `http://localhost:8080/token`;
+    // return this.http.post<string>(url, user).pipe(
+    //   catchError(this.handleError<string>('registerUser'))
+    // );
+    return this.http.post(url, user, { responseType: 'text' }).pipe(
+      catchError(this.handleError<string>('login'))
     );
   }
 
