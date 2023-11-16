@@ -7,16 +7,17 @@ import { ContentResultComponent } from './content-result/content-result.componen
 import { ContentDetailsComponent } from './content-details/content-details.component';
 import { AddContentFormComponent } from './add-content-form/add-content-form.component';
 import { NotfoundComponent } from '../notfound/notfound.component';
+import { exitAddContentGuard, exitEditContentGuard, isLoginGuard } from '../core/guards';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: '', component: ContentListComponent, data: {animation: 'contentPage'} },
-      { path: 'add', component: AddContentFormComponent, data: {animation: 'addContentPage'} },
-      { path: 'details/:id', component: ContentDetailsComponent, data: {animation: 'contentDetailsPage'} },
-      { path: 'search/:searchValue', component: ContentResultComponent, data: {animation: 'searchContentPage'} },
-      { path: 'history', component: HistoryComponent, data: {animation: 'historyPage'} },
+      { path: '', component: ContentListComponent /*, data: {animation: 'contentPage'}*/ },
+      { path: 'add', component: AddContentFormComponent /*, data: {animation: 'addContentPage'} */, canActivate: [isLoginGuard], canDeactivate:[exitAddContentGuard] },
+      { path: 'details/:id', component: ContentDetailsComponent /*, data: {animation: 'contentDetailsPage'} */ ,canActivate:[isLoginGuard], canDeactivate:[exitEditContentGuard] },
+      { path: 'search/:searchValue', component: ContentResultComponent /*, data: {animation: 'searchContentPage'}*/, canActivate:[isLoginGuard] },
+      { path: 'history', component: HistoryComponent/*, data: {animation: 'historyPage'}*/, canActivate:[isLoginGuard] },
       { path: '**', component: NotfoundComponent }
     ]
   }

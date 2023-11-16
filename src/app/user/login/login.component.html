@@ -17,6 +17,10 @@
             Wrong username or wrong password !!
           </div>
 
+          <div class="form-outline my-3 alert alert-danger" *ngIf="message.length > 0">
+            {{message}}
+          </div>
+
           <div class="form-outline my-3">
             <input type="email" id="form1Example13" class="form-control" placeholder="Username" formControlName="loginUsernameControl"/>
           </div>
