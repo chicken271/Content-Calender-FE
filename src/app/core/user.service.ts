@@ -29,7 +29,14 @@ export class UserService {
     //   catchError(this.handleError<string>('registerUser'))
     // );
     return this.http.post(url, user, { responseType: 'text' }).pipe(
-      catchError(this.handleError<string>('login'))
+      catchError(this.handleError<string>('loginUser'))
+    );
+  }
+
+  getUserByUsernameAndPassword(username: string, password: string){
+    const url = `http://localhost:8080/api/user?username=${username}&password=${password}`;
+    return this.http.get(url).pipe(
+      catchError(this.handleError<IUser>('getUserByUsernameAndPassword', {} as IUser))
     );
   }
 

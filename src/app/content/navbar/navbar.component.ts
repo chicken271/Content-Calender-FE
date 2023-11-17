@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventService } from '../../core/event.service';
 import { DataService } from '../../core/data.service';
 import { IContent } from '../../model/content';

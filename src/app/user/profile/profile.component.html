@@ -1,0 +1,56 @@
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-3 h-100 ">
+    <div>
+      <a routerLink="/content">Back to home</a>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-20 mb-6 mb-lg-4">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="https://i.pinimg.com/474x/08/61/b7/0861b76ad6e3b156c2b9d61feb6af864.jpg"
+                alt="Avatar" class="img-fluid my-5" style="width: 90px;" />
+              <h5>{{tokenStorageService.getUser().username}}</h5>
+              <p>Content creator</p>
+              <i class="fa fa-pencil-square-o fa-lg mt-3" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{tokenStorageService.getUser().email}}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Role</h6>
+                    <p class="text-muted">{{tokenStorageService.getUser().role}}</p>
+                  </div>
+                </div>
+                <h6>Contents</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Recent</h6>
+                    <p class="text-muted">Wwwwwaaaaattttssss Uuuuuppppp</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Most Viewed</h6>
+                    <p class="text-muted">Wwwwwaaaaattttssss Uuuuuppppp</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                  <a class="btn btn-primary"><i class="fa fa-facebook-f"></i> Facebook</a>
+                  <a class="btn btn-primary" style="background-color: #ff4500;"><i class="bi bi-instagram"></i> Instagram</a>
+                  <a class="btn btn-primary" style="background-color: #55acee"><i class="bi bi-twitter"></i> Twitter</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

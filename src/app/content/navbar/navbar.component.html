@@ -3,6 +3,7 @@
     <a class="nav-item nav-link " routerLink="/content">Home</a>
     <a class="nav-item nav-link " routerLink="/content/add">Add Content</a>
     <a class="nav-item nav-link " routerLink="/content/history">History Log</a>
+    <a class="nav-item nav-link " routerLink="/admin/users" *ngIf="tokenStorageService.getUser().role === 'ADMIN'">Users (Admin)</a>
   </div>
   <div>
     <div class="input-group">
@@ -10,10 +11,10 @@
         <button type="button" class="btn btn-primary search-button" (click)="searchContent(customSearch)">
           <i class="fa fa-search"></i>
         </button>
-    </div>
+    </div> 
   </div> 
   <div class="pe-3">
-    <button class="btn btn-primary" *ngIf="tokenStorageService.getToken()">{{tokenStorageService.getUser().username}}</button>
+    <button class="btn btn-primary" *ngIf="tokenStorageService.getToken()" routerLink="/user/profile">{{tokenStorageService.getUser().username}}</button>
     <button class="btn btn-danger" (click)="logout()" *ngIf="tokenStorageService.getToken()">Logout</button>
     <button class="btn btn-primary" *ngIf="!tokenStorageService.getToken()" routerLink="/user/login">Login</button>
   </div>
