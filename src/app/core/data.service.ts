@@ -54,7 +54,7 @@ export class DataService {
     const url = `http://localhost:8080/api/content/search/${keyword}`;
     return this.http.get<IContent[]>(url)
     .pipe(
-      tap(_ => this.log(`Searched for ${keyword}`,'DaataService')),
+      tap(_ => this.log(`Searched for ${keyword}`,'DataService')),
       catchError(this.handleError<IContent[]>('getAllContents', []))
     )
   }

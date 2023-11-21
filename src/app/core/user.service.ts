@@ -8,6 +8,14 @@ import { IUser } from '../model/user';
 export class UserService {
   constructor(private http: HttpClient){}
 
+  getAllUsers(){
+    const url = `http://localhost:8080/api/user/getUsers`;
+    return this.http.get(url)
+    .pipe(
+      catchError(this.handleError<IUser[]>('getAllUsers',[]))
+    );
+  }
+
   getUserByEmail(email: String){
     const url =  `http://localhost:8080/api/user/${email}`;
     return this.http.get(url)
