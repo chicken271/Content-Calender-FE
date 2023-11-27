@@ -1,6 +1,5 @@
-import { SelectorMatcher } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, map, of } from 'rxjs';
 import { UserService } from 'src/app/core/user.service';

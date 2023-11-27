@@ -2,7 +2,7 @@ import { Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { IContent } from '../model/content';
-import { catchError,map,tap } from 'rxjs';
+import { catchError,tap } from 'rxjs';
 import { MessageService } from './message.service';
 import { TokenStorageService } from './storage.service';
 

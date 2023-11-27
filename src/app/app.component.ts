@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IContent } from './model/content';
-import { DataService } from './core/data.service';
-import { MessageService } from './core/message.service';
-import { EventService } from './core/event.service';
-import { ChildrenOutletContexts, Router, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts } from '@angular/router';
 import { slideInAnimation } from './animations/slideInAnimation';
 
 @Component({

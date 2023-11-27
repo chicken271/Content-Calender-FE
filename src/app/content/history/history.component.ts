@@ -7,12 +7,6 @@ import { Router } from '@angular/router';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent{
   constructor(public messageService: MessageService,public router: Router){}
-
-  currentRoute = '/historyLogs';
-
-  ngOnInit(): void {
-  }
-
 }

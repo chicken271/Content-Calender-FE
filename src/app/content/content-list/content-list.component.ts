@@ -6,7 +6,7 @@ import { EventService } from '../../core/event.service';
 import { Status } from '../../model/status';
 import { Type } from '../../model/type';
 import { fadeAnimation } from 'src/app/animations/fadeAnimation';
-import { TokenStorageService } from 'src/app/core/storage.service';
+
 @Component({
   selector: 'content-list',
   templateUrl: './content-list.component.html',

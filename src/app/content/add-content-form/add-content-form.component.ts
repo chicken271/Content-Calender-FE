@@ -12,7 +12,7 @@ import { MessageService } from '../../core/message.service';
   templateUrl: './add-content-form.component.html',
   styleUrls: ['./add-content-form.component.css']
 })
-export class AddContentFormComponent implements OnInit{
+export class AddContentFormComponent {
   currentDate = new Date();
   Date = convertToDateSqlFormat(this.currentDate);
   displayDate = convertToDateDisplayFormat(this.currentDate);
@@ -29,10 +29,6 @@ export class AddContentFormComponent implements OnInit{
 
   @Output()addContent= new EventEmitter<IContent>();
   @ViewChild(ContentListComponent) home:any;
-
-  ngOnInit(): void {
-      
-  }
 
   submitForm(){
     const title = this.addContentForm.get(['contentTitleControl'])!.value;

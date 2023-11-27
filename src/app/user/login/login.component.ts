@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/core/storage.service';
 import { UserService } from 'src/app/core/user.service';
-import { IUser } from 'src/app/model/user';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +10,7 @@ import { IUser } from 'src/app/model/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   constructor(private fb: FormBuilder, private userService: UserService, private tokenStorageService: TokenStorageService, private router: Router, private route: ActivatedRoute) { }
 
   loginForm = this.fb.group({

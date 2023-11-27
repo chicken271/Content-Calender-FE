@@ -1,11 +1,5 @@
-import { Injectable, inject } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenStorageService } from './storage.service';
 import { ContentDetailsComponent } from '../content/content-details/content-details.component';
 import { AddContentFormComponent } from '../content/add-content-form/add-content-form.component';
