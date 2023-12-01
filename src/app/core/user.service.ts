@@ -17,10 +17,18 @@ export class UserService {
   }
 
   getUserByEmail(email: String){
-    const url =  `http://localhost:8080/api/user/${email}`;
+    const url =  `http://localhost:8080/api/user/findEmail/${email}`;
     return this.http.get(url)
     .pipe(
       catchError(this.handleError<IUser>('getUserByEmail',{} as IUser))
+    );
+  }
+
+  getUserByUsername(username: String){
+    const url = `http://localhost:8080/api/user/findUser/${username}`;
+    return this.http.get(url)
+    .pipe(
+      catchError(this.handleError<IUser>('getUserByUsername',{} as IUser))
     );
   }
 

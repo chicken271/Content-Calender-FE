@@ -41,7 +41,7 @@ export class DataService {
   // }
 
   getContentByPage(page: number){
-    const url = `http://localhost:8080/api/content?page=${page}&size=6`;
+    const url = `http://localhost:8080/api/content?page=${page}&size=2`;
 
     return this.http.get(url)
     .pipe(

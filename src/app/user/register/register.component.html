@@ -27,6 +27,14 @@
                           Username length must be more than 2 characters
                         </small>
                       </div>
+
+                      <div
+                        *ngIf="registerUserForm.get('usernameControl')!.valid && registerUserForm.get('usernameControl')!.dirty || registerUserForm.get('usernameControl')!.touched"
+                        class="text-danger d-block ">
+                        <small *ngIf="registerUserForm.get('usernameControl')?.errors?.['usedUsername']">
+                          Email is already registred
+                        </small>
+                      </div>
                     </div>
                   </div>
 

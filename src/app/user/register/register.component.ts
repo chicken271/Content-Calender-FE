@@ -20,12 +20,14 @@ export class RegisterComponent implements OnInit {
   registerUserForm:FormGroup = {} as FormGroup;
   ngOnInit(): void {
     this.registerUserForm = this.fb.group({
-      usernameControl:['',[Validators.required, Validators.minLength(3)]],
-      emailControl:['',[Validators.required, Validators.email], this.uniqueEmail.bind(this)],
+      usernameControl:['',
+      [Validators.required, Validators.minLength(3)], this.uniqueUsername.bind(this)],
+      emailControl:['',[Validators.required, Validators.email] , this.uniqueEmail.bind(this)],
       passwordControl:['',[Validators.required, Validators.minLength(3)]],
       confirmPasswordControl:['',[Validators.required]],
       checkTosControl: [false,[Validators.requiredTrue]]
-    },{
+    },
+    {
       validator: this.matchPassword
     });
 
@@ -44,6 +46,14 @@ export class RegisterComponent implements OnInit {
     return this.userService.getUserByEmail(uemail).pipe(
       map((usedEmail)=>(usedEmail)? {usedEmail: true} : null),
       catchError(()=> of(null))
+    );
+  }
+
+  uniqueUsername(ac: AbstractControl){
+    let uniqueUsername =  ac.value;
+    return this.userService.getUserByUsername(uniqueUsername).pipe(
+      map((usedUsername) => (usedUsername)? {usedUsername: true}: null),
+      catchError(() => of(null))
     );
   }
 

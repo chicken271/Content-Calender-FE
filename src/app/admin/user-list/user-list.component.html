@@ -1,16 +1,22 @@
 <p> <a routerLink="/content">Return home</a> </p>
 <p>user-list works!</p>
-<table [border]="1">
-  <thead>
-    <th>Username</th>
-    <th>Email</th>
-    <th>Password</th>
-    <th>Role</th>
-  </thead>
-  <tr *ngFor="let user of userList">
-    <td>{{ user.username }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.password }}</td>
-    <td>{{ user.role }}</td>
-  </tr>
-</table>
+
+<div class="container bg-white">
+  <table class="table table-primary table-striped">
+    <thead class="thead-dark">
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Role</th>
+    </thead>
+    <tr *ngFor="let user of userList" class="table-primary">
+      <td>
+        {{ user.username }}
+      </td>
+      <td class="table-primary">{{ user.email }}</td>
+      <td>{{ user.password }}</td>
+      <td>{{ user.role }}</td>
+    </tr>
+  </table>
+</div>
+
